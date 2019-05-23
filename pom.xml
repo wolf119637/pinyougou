@@ -11,9 +11,15 @@
   <modules>
     <module>dubboxdemo-service</module>
       <module>dubboxdemo-web</module>
+      <module>pinyougou-pojo</module>
+      <module>pinyougou-dao</module>
+      <module>pinyougou-common</module>
+      <module>pinyougou-interface</module>
+      <module>pinyougou-service</module>
+      <module>pinyougou-web</module>
   </modules>
 
-  <name>Maven</name>
+
   <!-- FIXME change it to the project's website -->
   <url>http://maven.apache.org/</url>
   <inceptionYear>2001</inceptionYear>
@@ -26,12 +32,12 @@
       <pagehelper.version>4.0.0</pagehelper.version>
       <servlet-api.version>2.5</servlet-api.version>
       <dubbo.version>2.8.4</dubbo.version>
-      <zookeeper.version>3.4.7</zookeeper.version>
+      <zookeeper.version>3.4.6</zookeeper.version>
       <zkclient.version>0.1</zkclient.version>
       <mybatis.version>3.2.8</mybatis.version>
       <mybatis.spring.version>1.2.2</mybatis.spring.version>
       <mybatis.paginator.version>1.2.15</mybatis.paginator.version>
-      <mysql.version>5.1.32</mysql.version>
+      <mysql.version>8.0.11</mysql.version>
       <druid.version>1.0.9</druid.version>
       <commons-fileupload.version>1.3.1</commons-fileupload.version>
       <freemarker.version>2.3.23</freemarker.version>
@@ -44,7 +50,6 @@
 
   <dependencyManagement>
     <dependencies>
-
       <!-- Spring -->
       <dependency>
         <groupId>org.springframework</groupId>
