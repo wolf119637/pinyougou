@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo" xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!-- 具体的实现bean -->
+    <bean id="demoService" class="dubbodemo.service.impl.UserServiceImpl" />
+
+    <dubbo:application name="dubboxdemo-service"/>
+    <dubbo:registry address="zookeeper://192.168.165.130:2181"/>
+
+    <!--<dubbo:annotation package="dubbodemo.service.impl"/>-->
+    <!-- 声明需要暴露的服务接口 -->
+    <dubbo:service interface="dubbodemo.service.UserService" ref="demoService" />
+    <dubbo:consumer timeout="5000"></dubbo:consumer>
+
+</beans>

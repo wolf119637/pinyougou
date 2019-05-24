@@ -15,6 +15,7 @@
     <dubbo:registry address="zookeeper://192.168.165.130:2181"/>
 
     <!--<dubbo:annotation package="dubbodemo.service.impl"/>-->
+    <dubbo:protocol port="20882" name="dubbo"></dubbo:protocol>
     <!-- 声明需要暴露的服务接口 -->
     <dubbo:service interface="dubbodemo.service.UserService" ref="demoService" />
     <dubbo:consumer timeout="5000"></dubbo:consumer>

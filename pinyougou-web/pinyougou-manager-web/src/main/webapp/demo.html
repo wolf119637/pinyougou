@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="./js/angular.min.js"></script>
+
+    <script>
+
+        var app = angular.module("myApp", []);// 定义个叫myAppd的模块
+        //
+        //        // 定义控制器
+        //        app.controller("mvController",function($scope){
+        //
+        //
+        //            $scope.add=function(){
+        //
+        //
+        //                $scope.z= parseInt($scope.x)+parseInt($scope.y);
+        //            }
+        //
+        //        })
+
+        //        app.controller("myController",function($scope){
+        //
+        //           $scope.list=[100,192,203,434];//定义数组
+        //
+        //        });
+
+        app.controller("myController", function ($scope) {
+
+            $scope.list = [{name: "展示", age: 17},//定义数组
+                {name: "lihe", age: 18},//定义数组
+                {name: "liwang", age: 19}];//定义数组
+
+        });
+    </script>
+
+</head>
+<!--ng-app 指令在网页加载完毕时会自动引导（自动初始化）应用程序。 -->
+<!--ng-model 指令用于绑定变量,-->
+<!--ng-controller 用于指定所使用的控制器。-->
+<!--$scope 的使用贯穿整个 AngularJS App 应用,它与数据模型相关联,同时也是表达式执行的-->
+<!--ng-click  是最常用的单击事件指令，再点击时触发控制器的某个方法   -->
+<body ng-app="myApp" ng-controller="myController">
+
+<!--{{100+100}}-->
+
+<!--请输入你的姓名<input ng-model="mvname">-->
+<!--<br>-->
+
+<!--{{mvname}}你好-->
+
+<!--<br>-->
+
+<!--x:<input ng-model="x"/>y:<input ng-model="y"/>-->
+<!--<br>-->
+
+<!--<button ng-click="add()">运算</button>-->
+
+<!--结果:{{z}}-->
+
+
+<!--循环数组-->
+<!--<table>-->
+
+<!--<tr ng-repeat="x in list">-->
+
+<!--<td>{{x}}</td>-->
+<!--</tr>-->
+<!--</table>-->
+
+<!--循环对象数组-->
+
+<!--<table>-->
+
+    <!--<tr>-->
+        <!--<td>姓名</td>-->
+        <!--<td>年龄</td>-->
+    <!--</tr>-->
+    <!--<tr ng-repeat="a in list">-->
+        <!--<td>{{a.name}}</td>-->
+        <!--<td>{{a.age}}</td>-->
+    <!--</tr>-->
+
+<!--内置服务-->
+
+</table>
+
+
+</body>
+</html>
