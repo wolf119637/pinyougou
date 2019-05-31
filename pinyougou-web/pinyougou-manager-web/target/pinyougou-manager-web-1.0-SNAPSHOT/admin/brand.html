@@ -19,158 +19,13 @@
     <link rel="stylesheet" href="../plugins/angularjs/pagination.css">
     <!-- 分页组件结束 -->
 
-
-    <script type="text/javascript">
-
-        var app = angular.module('pinyougou', ['pagination']);//定义模块
-        app.controller('brandController', function ($scope, $http) {
-            //读取列表数据绑定到表单中
-            $scope.findAll = function () {
-                $http.get('../brand/findAll.do').success(
-                        function (response) {
-                            $scope.list = response;
-                        }
-                );
-            }
-
-            //分页控件配置currentPage:当前页   totalItems :总记录数
-            // itemsPerPage:每页记录数  perPageOptions :分页选项
-            // onChange:当页码变更后自动触发的方法
-            $scope.paginationConf = {
-                currentPage: 1,
-                totalItems: 10,
-                itemsPerPage: 10,
-                perPageOptions: [10, 20, 30, 40, 50],
-                onChange: function () {
-
-                    $scope.reloadList();
-                }
-
-            }
+    <script type="text/javascript" src="../js/base_pagination.js"></script>
+    <script type="text/javascript" src="../js/service/brandService.js"></script>
+    <script type="text/javascript" src="../js/controller/baseController.js"></script>
+    <script type="text/javascript" src="../js/controller/brandController.js"></script>
 
 
-            //刷新列表
 
-            $scope.reloadList = function () {
-                $scope.search($scope.paginationConf.currentPage,$scope.paginationConf.itemsPerPage);
-                $scope.findPage($scope.paginationConf.currentPage, $scope.paginationConf.itemsPerPage);
-            }
-
-            //分页
-            $scope.findPage = function (pageNum, size) {
-
-                $http.get('../brand/findPage.do?pageNum=' + pageNum + '&size=' + size).success(
-                        function (response) {
-                            $scope.list = response.rows;//显示当前页数据
-                            $scope.paginationConf.totalItems = response.total;//更新总记录数
-                        }
-                );
-
-            }
-
-            //保存 和修改
-            $scope.save = function () {
-
-                var methodName = 'add'; //定义变量，默认是增加数据
-
-                if ($scope.entity.id != null) {
-
-
-                    //如果有id 则是修改
-
-                    methodName = 'update';
-
-                }
-
-
-                $http.post("../brand/" + methodName + ".do", $scope.entity).success(
-                        function (response) {
-                            if (response.success) {
-                                $scope.reloadList();
-                            }
-                            else {
-                                alert(response.message);
-
-                            }
-                        }
-                )
-
-
-            }
-
-            //查询实体
-
-            $scope.findOne = function (id) {
-
-                $http.get("../brand/findOne.do?id=" + id).success(
-                        function (response) {
-                            $scope.entity = response;
-                        }
-                )
-
-
-            }
-
-            $scope.selectIds = []; //选中的ID集合
-
-            //更新复选
-
-            $scope.updateSelection = function ($event, id) {
-
-                //判断状态
-
-                if ($event.target.checked) {
-
-                    $scope.selectIds.push(id);
-                } else {
-
-                    //arrayObject.splice(index,howmany,item1,.....,itemX)
-                    //1代表要删除的数量
-                    //从数组中移除
-                    var idx = $scope.selectIds.indexOf(id);
-                    $scope.selectIds.splice(idx, 1);
-
-                }
-
-
-            }
-
-            //批量删除
-
-            $scope.dele = function () {
-                //获取选中的复选框
-                $http.get("../brand/delete.do?ids=" + $scope.selectIds).success(
-                        function (resposne) {
-                            if (resposne.success) {
-                                $scope.reloadList(); //刷新列表
-                            }
-
-                        }
-                )
-
-
-            }
-
-
-            $scope.searchEntity = {};
-
-            //条件查询
-            $scope.search = function (page, size) {
-
-                $http.post("../brand/search.do?page=" + page + "&rows=" + size).success(
-                        function (response) {
-
-                            $scope.list = response.rows;//显示当前页数据
-                            $scope.paginationConf.totalItems = response.total;
-                        }
-                );
-            }
-
-
-        });
-
-
-    </script>
 
 </head>
 <body class="hold-transition skin-red sidebar-mini" ng-app="pinyougou" ng-controller="brandController">
@@ -222,7 +77,7 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="entity in list">
+            <tr 9="entity in list">
                 <td><input type="checkbox" ng-click="updateSelection($event, entity.id)"></td>
                 <td>{{entity.id}}</td>
                 <td>{{entity.name}}</td>

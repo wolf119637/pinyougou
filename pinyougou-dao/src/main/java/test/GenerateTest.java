@@ -18,22 +18,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by zuoyao on 2019/5/12.
+ * Created by kim on 2019/5/12.
  */
 public class GenerateTest {
 
-//    public static void main(String[] args) throws Exception {
-//        Connection root = DriverManager.getConnection("jdbc:mysql://localhost:3306/pinyougou_db?characterEncoding=utf-8", "root", "12345678");
-//        Statement statement = root.createStatement();
-//        boolean execute = statement.execute("select * from tb_user");
-//        System.out.println(execute);
-//        statement.close();
-//        root.close();
-//
-//
-//    }
 
-    //@Test
+   // @Test
     public void generate() throws IOException, XMLParserException, InvalidConfigurationException, SQLException, InterruptedException {
         List<String> warnings = new ArrayList<String>();
         boolean overwrite = true;

@@ -4,7 +4,8 @@ import java.io.Serializable;
 import java.util.List;
 
 /**
- * Created by kim on 2019/5/23.
+ * Created by
+ * kim on 2019/5/23.
  */
 public class PageResult implements Serializable {
 

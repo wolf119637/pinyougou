@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by kim
@@ -70,12 +71,10 @@ public class BrandController {
 
         try {
             brandService.update(brand);
-
             return new Result(true, "修改成功");
         } catch (Exception e) {
 
             e.printStackTrace();
-
             return new Result(false, "修改失败");
         }
 
@@ -118,7 +117,6 @@ public class BrandController {
     /**
      * 查询+分页
      * @param tbBrand
-     * @param pageNum
      * @param rows
      * @return
      */
@@ -126,6 +124,12 @@ public class BrandController {
     public PageResult search(@RequestBody TbBrand tbBrand, int pageNum, int rows) {
 
             return brandService.findPage(tbBrand,pageNum,rows);
+    }
+
+
+    @RequestMapping("/selectOptionList")
+    public List<Map> selectOptionList() {
+        return brandService.selectOptionList();
     }
 
 }

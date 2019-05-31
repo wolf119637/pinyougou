@@ -16,6 +16,7 @@
 
   <modules>
     <module>pinyougou-sellergoods-interface</module>
+    <module>pinyougou-content-interface</module>
   </modules>
 
   <distributionManagement>
